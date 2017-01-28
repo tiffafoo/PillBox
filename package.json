@@ -51,7 +51,8 @@
     "express": "^4.14.0",
     "moment": "^2.17.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "4.0.0-alpha.6"
   },
   "scripts": {
     "start": "node scripts/start.js",
