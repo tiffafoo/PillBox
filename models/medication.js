@@ -7,34 +7,34 @@ const medicationSchema = new Schema({
 	description: String,
 	startdate: Date, // Date.now()
 	enddate: Date, // stop taking medecine
-	waittime: Date, // 30 minute wait or more
+	waittime: Number, // in minutes, default 60
 	weekly: {
 		isweekly: Boolean,
 		monday: {
-				time: [{type: Date}]
+				time: [{type: Number, unique: true}] //1345 ==> 13:45
 		},
 		tuesday: {
-			time: [{type: Date}]
+			time: [{type: Number, unique: true}]
 		},
 		wednesday: {
-			time: [{type: Date}]
+			time: [{type: Number, unique: true}]
 		},
 		thursday: {
-			time: [{type: Date}]
+			time: [{type: Number, unique: true}]
 		},
 		friday: {
-			time: [{type: Date}]
+			time: [{type: Number, unique: true}]
 		},
 		saturday: {
-			time: [{type: Date}]
+			time: [{type: Number, unique: true}]
 		},
 		sunday: {
-			time: [{type: Date}]
+			time: [{type: Number, unique: true}]
 		}
 	},
 	interval: {
-		time: Date,
-		every: Number
+		day: Date,
+		dayInterval: Number
 	}
 });
 
