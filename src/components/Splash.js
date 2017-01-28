@@ -1,18 +1,21 @@
 import React from 'react';
-import logo from '../logo.svg';
-import '../App.scss';
 
 class Splash extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Splash</h2>
+        <header>
+          {/* <img src={logo} alt="Buzz" className="logo"/> */}
+          <p className="vertical-align">Logo</p>
+          <ul className="navlist">
+            <li>Contact</li>
+            <li>How It Works</li>
+            <li className="cta">Login</li>
+          </ul>
+        </header>
+        <div className="content">
+          test content
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
