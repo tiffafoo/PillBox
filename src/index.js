@@ -2,10 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 
-import './index.scss';
+import './App.scss';
 import App from './App';
 import Splash from './components/Splash';
 import NotFound from './components/NotFound';
+import AddMedication from './components/AddMedication';
 
 const Root = () => {
   return (
@@ -13,6 +14,7 @@ const Root = () => {
       <div>
         <Match exactly pattern="/" component={Splash} />
         <Match pattern="/search" component={App} />
+        <Match pattern="/add" component={AddMedication} />
         <Miss component={NotFound} />
       </div>
     </BrowserRouter>
