@@ -1,0 +1,35 @@
+{
+  "name": "McHacks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sirMerr/McHacks.git",
+  "author": "Tiffany, Matan & Amir",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "xo": {
+    "esnext": true,
+		"rules": {
+			"object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+			"camelcase": [
+				"error",
+				{ "properties": "never" }
+			]
+		}
+  },
+  "devDependencies": {
+    "xo": "^0.17.1"
+  }
+}
