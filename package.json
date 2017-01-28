@@ -54,7 +54,9 @@
     "mongodb": "^2.2.22",
     "mongoose": "^4.7.9",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "4.0.0-alpha.6",
+    "semantic-ui-react": "^0.64.4"
   },
   "scripts": {
     "start": "node scripts/start.js",
