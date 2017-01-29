@@ -5,11 +5,10 @@ import { Menu, Icon } from "semantic-ui-react";
 class Header extends React.Component {
   state = { activeItem: "home" }
 
-  // handleItemClick = (e, { path }) => this.setState({ activeItem: name })
   handleItemClick = (e, { path }) => this.context.router.transitionTo(path);
   render() {
 		return (
-      <Menu secondary={this.props.headerStyle} icon="labeled">
+      <Menu secondary icon="labeled">
 				<Menu.Item name="home" path="/" onClick={this.handleItemClick} >
 					<img src={logo} alt="Home" className="nav-home" />
 				</Menu.Item>
