@@ -43,6 +43,8 @@ app.get('/', (req, res) => {
 // GET: retrieve all medications
 app.get('/api/medications', (req, res) => {
 	Medication.find({})
+	.select('-__v')
+	.lean()
 	.exec((err, docs) => {
 		if (err) {
 			handleError(res, err.message, 'Failed to get medications');
@@ -58,21 +60,49 @@ app.post('/api/medications', (req, res) => {
 	const param = req.body;
 	newMedication.name = param.name;
 	newMedication.description = param.description;
-	newMedication.startdate = param.password;
-	newMedication.enddate = param.enddate;
+	newMedication.startdate = moment();
+	if (param.enddate === undefined) {
+		newMedication.enddate = moment().add(7, 'months');
+	} else {
+			newMedication.enddate = param.enddate;
+	}
 	newMedication.waittime = param.waittime;
-
-
+	newMedication.weekly.monday = validateBody(param.monday);
+	newMedication.weekly.tuesday = validateBody(param.tuesday);
+	newMedication.weekly.wednesday = validateBody(param.wednesday);
+	newMedication.weekly.thursday = validateBody(param.thursday);
+	newMedication.weekly.friday = validateBody(param.friday);
+	newMedication.weekly.saturday = validateBody(param.saturday);
+	newMedication.weekly.sunday = validateBody(param.sunday);
+	if (param.dayInterval === undefined) {
+		newMedication.interval.dayInterval = -1;
+	} else {
+		newMedication.interval.dayInterval = param.dayInterval;
+	}
+	console.log(newMedication);
 	Medication.create(newMedication, (err, doc) => {
 		if (err) {
-			handleError(res, err.message, 'Failed to add user');
+			handleError(res, err.message, 'Failed to add medication');
 		} else {
 			res.status(201).json(doc);
 		}
 	});
 });
 
+app.delete('/api/medication', (req, res) => {
+		Medication.delete(req.body.name, doc => {
+			res.json(doc);
+		});
+	});
+
 
 app.listen(app.get('port'), () => {
 	console.log('Node app is running at localhost:' + app.get('port'));
 });
+
+function validateBody(body) {
+	if (body === undefined || body === '') {
+		return [];
+	}
+	return JSON.parse(body);
+}
