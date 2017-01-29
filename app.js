@@ -65,6 +65,12 @@ app.get('/', (req, res) => {
 	res.send('Hello World!!');
 });
 
+// GET: nuance
+app.get('/api/nuance', (req, res) => {
+    app.io.sockets.emit('record');
+    res.send("Started recording!");
+});
+
 // GET: retrieve all medications
 app.get('/api/medications', (req, res) => {
 	Medication.find({})
