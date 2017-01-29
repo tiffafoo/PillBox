@@ -5,7 +5,7 @@ class NotFound extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header headerStyle="true"></Header>
+        <Header></Header>
         <div className="content">
           test content
         </div>
