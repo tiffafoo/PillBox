@@ -17,6 +17,11 @@ body {
   margin: auto;
 }
 
+.wrapper.splash {
+  max-width: 420px;
+  padding: 0 70px 70px 0;
+}
+
 .vertical-align {
   display: flex;
   align-items: center;
@@ -61,7 +66,6 @@ body {
 }
 
 .splash-text {
-	margin-left: 10%;
 	z-index: 0;
 }
 

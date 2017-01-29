@@ -9,10 +9,10 @@ class Splash extends React.Component {
       <div>
         <div className="splash-background"></div>
         <Header></Header>
-        <div className="wrapper">
+        <div className="wrapper splash">
           <div className="splash-text">
             <h1 className="headline">PillBox</h1>
-            <h2 className="subtitle">Go out and enjoy</h2>
+            <h2 className="subtitle">Prescriptions made easy, for when life isn't</h2>
             <Button
               primary size="huge"
               onClick={this.handleItemClick}
