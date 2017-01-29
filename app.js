@@ -35,7 +35,15 @@ app.io.on('connection', function(socket){
     });
 
     socket.on('message', function(msg) {
-        console.log(msg);
+			const message = JSON.parse(msg);
+				if ( Object.prototype.toString.call(message) ===  '[object Array]') {
+					console.log(message);
+					// console.log(message.concepts.medication);
+					// console.log(message.concepts.hour);
+				} else {
+					console.log('Object!');
+				}
+				// console.log(msg.payload);
     });
 });
 
