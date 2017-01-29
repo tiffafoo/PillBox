@@ -69,15 +69,15 @@ app.get('/api/medications', (req, res) => {
 });
 
 // GET: retrieve medications of day and hour now.
-app.get('/api/medications', (req, res) => {
-	Medication.findOne({ weekly.monday: req.body.name }, (err, doc) => {
-		if (err) {
-			handleError(res, err.message, 'Failed to update user');
-		} else {
-			doc.interval.nextintake = moment(doc.interval.nextintake).add(doc.interval.dayinterval, 'days');
-		}
-	});
-});
+// app.get('/api/medications', (req, res) => {
+// 	Medication.findOne({ weekly.monday: req.body.name }, (err, doc) => {
+// 		if (err) {
+// 			handleError(res, err.message, 'Failed to update user');
+// 		} else {
+// 			doc.interval.nextintake = moment(doc.interval.nextintake).add(doc.interval.dayinterval, 'days');
+// 		}
+// 	});
+// });
 
 // PUT: Update nextIntake date
 app.put('/api/medications', (req, res) => {
