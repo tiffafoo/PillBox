@@ -28,7 +28,7 @@ app.set('port', (process.env.PORT || 8080));
 app.set('socketio', app.io);
 
 app.io.on('connection', function(socket){
-    console.log("connected!");    
+    console.log("connected!");
 
     socket.on('disconnect', function(socket){
         console.log("disconnected!");
@@ -135,12 +135,13 @@ app.post('/api/medications', (req, res) => {
 	newMedication.weekly.friday = validateBody(param.friday);
 	newMedication.weekly.saturday = validateBody(param.saturday);
 	newMedication.weekly.sunday = validateBody(param.sunday);
-	if (param.dayinterval === undefined || param.nextintake === undefined) {
+	console.log(moment().add(Number(param.dayinterval), 'days'));
+	if (param.dayinterval === undefined) {
 		newMedication.interval.dayinterval = -1;
 		// newMedication.interval.nextintake = moment().substract(1, 'years');
 	} else {
-		newMedication.interval.dayInterval = param.dayInterval;
-		newMedication.interval.nextintake = param.nextintake;
+		newMedication.interval.dayinterval = param.dayinterval;
+		newMedication.interval.nextintake = moment().add(Number(param.dayinterval), 'days');
 	}
 	console.log(newMedication);
 	Medication.create(newMedication, (err, doc) => {
@@ -167,8 +168,8 @@ app.delete('/api/medications', (req, res) => {
 
 app.listen(app.get('port'), () => {
 	console.log('Node app is running at localhost:' + app.get('port'));
-	setInterval(function(){ notify(); }, 3000);
-	// setInterval(function(){ notify(); }, 3600000);
+	// setInterval(function(){ notify(); }, 3000);
+	setInterval(function(){ notify(); }, 3600000);
 });
 
 function validateBody(body) {
