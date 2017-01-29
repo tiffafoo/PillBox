@@ -89,9 +89,15 @@ app.post('/api/medications', (req, res) => {
 	});
 });
 
-app.delete('/api/medication', (req, res) => {
-		Medication.delete(req.body.name, doc => {
-			res.json(doc);
+app.delete('/api/medications', (req, res) => {
+		Medication.find({ _id: req.body.id})
+		.remove()
+		.exec((err, docs) => {
+			if (err) {
+				handleError(res, err.message, 'Failed to delete medication');
+			} else {
+				res.status(200).json(docs);
+			}
 		});
 	});
 
