@@ -33,6 +33,10 @@ app.io.on('connection', function(socket){
     socket.on('disconnect', function(socket){
         console.log("disconnected!");
     });
+
+    socket.on('message', function(msg) {
+        console.log(msg);
+    });
 });
 
 app.use((req, res, next) => {
