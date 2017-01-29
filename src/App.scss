@@ -65,3 +65,103 @@ body {
 .headline {
 	font-size: 3em;
 }
+
+.ui.form {
+	padding: 30px;
+}
+
+.SingleDatePickerInput {
+	border: 0 !important;
+}
+
+// Overwrite DateInput styling
+.DateInput {
+	font-size: 1rem !important;
+	background: 0 0!important;
+	color: rgba(0,0,0,.6)!important;
+	font-weight: 400;
+	border-radius: .28571429rem;
+	box-shadow: 0 0 0 1px rgba(34,36,38,.15) inset;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  vertical-align: baseline;
+  background: #E0E1E2;
+  color: rgba(0,0,0,.6);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: 0 .25em 0 0;
+  padding: 6px !important;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .28571429rem;
+  transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+
+	&__display-text {
+		padding: 0 !important;
+	}
+
+	&__display-text--focused {
+		background: none !important;
+    border: none !important;
+    color: inherit !important;
+	}
+
+	&:active {
+		background: #F8F8F8!important;
+    color: rgba(0,0,0,.9)!important;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset, 0 1px 4px 0 rgba(34,36,38,.15) inset;
+	}
+
+	&:focus {
+		background: #FFF!important;
+    color: rgba(0,0,0,.8)!important;
+    box-shadow: 0 0 0 1px rgba(34,36,38,.35) inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+	}
+}
+
+.ui.basic.label {
+	font-weight: normal;
+}
+
+.ui.labeled.input {
+	width: auto !important;
+
+	input[type=text] {
+		width: 40px !important;
+		text-align: center;
+		padding: 0;
+	}
+}
+
+input[type=time] {
+  width: auto !important;
+}
+
+.intervalTable, .intervalTime {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.ui.compact.selection.dropdown {
+	border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+td {
+  padding: 0 7px;
+  text-align: center;
+}
+
+.align {
+  display: flex;
+}
+
+.or {
+  z-index: 0 !important;
+}
