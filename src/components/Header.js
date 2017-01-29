@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import logo from "../../public/logo.png"
 import { Menu, Icon } from "semantic-ui-react";
 
@@ -6,6 +7,12 @@ class Header extends React.Component {
   state = { activeItem: "home" }
 
   handleItemClick = (e, { path }) => this.context.router.transitionTo(path);
+  activateVoice = () => {
+    axios.get('/api/nuance')
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   render() {
 		return (
       <Menu secondary icon="labeled">
@@ -13,7 +20,10 @@ class Header extends React.Component {
 					<img src={logo} alt="Home" className="nav-home" />
 				</Menu.Item>
 				<Menu.Menu position="right">
-					<Menu.Item name="pillbox" path="/add" onClick={this.handleItemClick}>
+					<Menu.Item name="activate voice" onClick={this.activateVoice}>
+						<Icon name="unmute" /> Activate Voice
+					</Menu.Item>
+					<Menu.Item name="add medication" path="/add" onClick={this.handleItemClick}>
 						<Icon name="add square" /> Add Medication
 					</Menu.Item>
 					<Menu.Item name="pillbox" path="/pillbox" onClick={this.handleItemClick}>

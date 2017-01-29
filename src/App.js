@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'semantic-ui-react';
 import Header from './components/Header';
 
 class App extends React.Component {
@@ -7,7 +8,16 @@ class App extends React.Component {
       <div>
         <Header></Header>
         <div className="wrapper">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Medication</Table.HeaderCell>
+                <Table.HeaderCell>Quantity</Table.HeaderCell>
+                <Table.HeaderCell>Next Dosage</Table.HeaderCell>
+                <Table.HeaderCell>Status</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+          </Table>
         </div>
       </div>
     );

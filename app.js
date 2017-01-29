@@ -28,7 +28,7 @@ app.set('port', (process.env.PORT || 8080));
 app.set('socketio', app.io);
 
 app.io.on('connection', function(socket){
-    console.log("connected!");    
+    console.log("connected!");
 
     socket.on('disconnect', function(socket){
         console.log("disconnected!");
@@ -167,7 +167,7 @@ app.delete('/api/medications', (req, res) => {
 
 app.listen(app.get('port'), () => {
 	console.log('Node app is running at localhost:' + app.get('port'));
-	setInterval(function(){ notify(); }, 3000);
+	// setInterval(function(){ notify(); }, 3000);
 	// setInterval(function(){ notify(); }, 3600000);
 });
 
