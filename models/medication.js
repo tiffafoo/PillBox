@@ -19,7 +19,8 @@ const medicationSchema = new Schema({
 		sunday: [{type: Number, unique: true}]
 	},
 	interval: {
-		dayInterval: {type: Number}
+		nextintake: Date,
+		dayinterval: Number
 	}
 });
 
