@@ -3,6 +3,7 @@ const moment = require('moment');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const nohup = require('child_process').exec;
+const filesystem = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -35,9 +36,17 @@ app.io.on('connection', function(socket){
     });
 
     socket.on('message', function(msg) {
-			const message = JSON.parse(msg);
+			let message = JSON.parse(msg);
 				if ( Object.prototype.toString.call(message) ===  '[object Array]') {
 					console.log(message);
+					console.log(message[0].concepts);
+					message = message[0].concepts;
+					filesystem.writeFile('public/data.json', JSON.stringify(message), function(err) {
+						if (err) {
+							return console.log('wat');
+						}
+						console.log('saved');
+					})
 					// console.log(message.concepts.medication);
 					// console.log(message.concepts.hour);
 				} else {
