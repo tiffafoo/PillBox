@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 require('dotenv').config();
 
 const app = express();
+var server = app.listen(8081);
+app.io = require('socket.io')(server);
 const MONGODB_URI = process.env.MONGO_KEY;
 
 // models
@@ -22,6 +24,15 @@ app.use(bodyParser.json());
 
 // set port
 app.set('port', (process.env.PORT || 8080));
+app.set('socketio', app.io);
+
+app.io.on('connection', function(socket){
+    console.log("connected!");    
+
+    socket.on('disconnect', function(socket){
+        console.log("disconnected!");
+    });
+});
 
 app.use((req, res, next) => {
 	// logging
