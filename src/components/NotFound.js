@@ -7,7 +7,7 @@ class NotFound extends React.Component {
       <div className="App">
         <Header></Header>
         <div className="content">
-          test content
+          404 Not Found
         </div>
       </div>
     );

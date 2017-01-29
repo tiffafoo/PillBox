@@ -11,7 +11,8 @@ class Splash extends React.Component {
         <Header></Header>
         <div className="wrapper">
           <div className="splash-text">
-            <h2 className="headline">Lorem Ipsum</h2>
+            <h1 className="headline">PillBox</h1>
+            <h2 className="subtitle">Go out and enjoy</h2>
             <Button
               primary size="huge"
               onClick={this.handleItemClick}

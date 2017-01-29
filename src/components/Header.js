@@ -8,6 +8,7 @@ class Header extends React.Component {
 
   handleItemClick = (e, { path }) => this.context.router.transitionTo(path);
   activateVoice = () => {
+    this.setState({micOn: true});
     axios.get('/api/nuance')
       .then(res => console.log(res))
       .catch(err => console.log(err));
