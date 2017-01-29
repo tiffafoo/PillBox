@@ -1,7 +1,11 @@
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script>
         var socket = io('localhost:8081');
 
         socket.on('record', function(){
             console.log("recording!!!");
             document.getElementById("asr_go").click();
         });
+    </script>
 
