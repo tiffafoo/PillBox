@@ -5,13 +5,21 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: linear-gradient(to top right, rgba(250,97,241,0.1), rgba(28,188,247,0.1)) no-repeat fixed center center;
 }
 
 .wrapper {
+  max-width: 80%;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: calc(100vh - 200px);
 	justify-content: center;
+  margin: auto;
+}
+
+.wrapper.splash {
+  max-width: 420px;
+  padding: 0 70px 70px 0;
 }
 
 .vertical-align {
@@ -58,12 +66,16 @@ body {
 }
 
 .splash-text {
-	margin-left: 10%;
 	z-index: 0;
 }
 
 .headline {
 	font-size: 3em;
+}
+
+.subtitle {
+  margin-top: -20px;
+  font-size: 2em;
 }
 
 .ui.form {
@@ -164,4 +176,24 @@ td {
 
 .or {
   z-index: 0 !important;
+}
+
+.ui.celled.table {
+  align-self: center;
+}
+
+.form-limit {
+  max-width: 500px;
+}
+
+.field {
+  margin: 0 0 2em !important;
+}
+
+.mic {
+  transition: color 0.3s ease !important;
+}
+
+.recording {
+  color: #f74433 !important;
 }

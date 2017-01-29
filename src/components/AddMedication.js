@@ -10,7 +10,7 @@ class AddMedication extends React.Component {
     this.state = {
       focused: false,
       date: null,
-      schedulingMethod: null
+      schedulingMethod: 'distributed'
     };
 
     this.onDateChange = this.onDateChange.bind(this);
@@ -43,54 +43,58 @@ class AddMedication extends React.Component {
     return (
       <div>
         <Header></Header>
-        <Form>
-          <Form.Field>
-            <label>Medication Name</label>
-            <input placeholder="Proctoglyvenol"/>
-          </Form.Field>
-          <Form.Field>
-            <label>End Date</label>
-            <div className="align">
-              <SingleDatePicker
-                {...this.props}
-                id="date_input"
-                date={date}
-                focused={focused}
-                onDateChange={this.onDateChange}
-                onFocusChange={this.onFocusChange}
-              />
-              { this.state.date &&
-                <Button icon onClick={e => this.clearDate(e)}>
-                  <Icon name="delete"/>
-                </Button>}
-            </div>
-          </Form.Field>
-          <Form.Field>
-            <label>Scheduling Method</label>
-            <Button.Group>
-              <Button
-                active={this.state.schedulingMethod === 'distributed'}
-                onClick={e =>this.setSchedulingMethod(e, 'distributed')}>
-                Distributed
-              </Button>
-              <Button.Or />
-              <Button
-                active={this.state.schedulingMethod === 'interval'}
-                onClick={e => this.setSchedulingMethod(e, 'interval')}>
-                Interval
-              </Button>
-            </Button.Group>
-          </Form.Field>
-          {/* <IntervalSchedule/>
-          <DistributedSchedule/> */}
-          { this.state.schedulingMethod === 'distributed' ?
-            <DistributedSchedule/> :
-            this.state.schedulingMethod === 'interval' ?
-              <IntervalSchedule/> :
-            null
-          }
-          <Button positive>Submit</Button>
-        </Form>
+        <div className="wrapper form-limit">
+          <h2>Add Medication</h2>
+
+          <Form>
+            <Form.Field>
+              <label>Medication Name</label>
+              <input placeholder="Proctoglyvenol"/>
+            </Form.Field>
+            <Form.Field>
+              <label>End Date</label>
+              <div className="align">
+                <SingleDatePicker
+                  {...this.props}
+                  id="date_input"
+                  date={date}
+                  focused={focused}
+                  onDateChange={this.onDateChange}
+                  onFocusChange={this.onFocusChange}
+                />
+                { this.state.date &&
+                  <Button icon onClick={e => this.clearDate(e)}>
+                    <Icon name="delete"/>
+                  </Button>}
+              </div>
+            </Form.Field>
+            <Form.Field>
+              <label>Scheduling Method</label>
+              <Button.Group>
+                <Button
+                  active={this.state.schedulingMethod === 'distributed'}
+                  onClick={e =>this.setSchedulingMethod(e, 'distributed')}>
+                  Distributed
+                </Button>
+                <Button.Or />
+                <Button
+                  active={this.state.schedulingMethod === 'interval'}
+                  onClick={e => this.setSchedulingMethod(e, 'interval')}>
+                  Interval
+                </Button>
+              </Button.Group>
+            </Form.Field>
+            { this.state.schedulingMethod === 'distributed' ?
+              <DistributedSchedule/> :
+              this.state.schedulingMethod === 'interval' ?
+                <IntervalSchedule/> :
+              null
+            }
+            <Button positive
+              onClick={e => e.preventDefault()}
+            >Submit</Button>
+          </Form>
+        </div>
       </div>
     );
   }

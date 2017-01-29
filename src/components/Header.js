@@ -4,10 +4,13 @@ import logo from "../../public/logo.png"
 import { Menu, Icon } from "semantic-ui-react";
 
 class Header extends React.Component {
-  state = { activeItem: "home" }
+  state = {
+    recording: false
+ }
 
   handleItemClick = (e, { path }) => this.context.router.transitionTo(path);
   activateVoice = () => {
+    this.setState({recording: !this.state.recording});
     axios.get('/api/nuance')
       .then(res => console.log(res))
       .catch(err => console.log(err));
@@ -20,7 +23,8 @@ class Header extends React.Component {
 					<img src={logo} alt="Home" className="nav-home" />
 				</Menu.Item>
 				<Menu.Menu position="right">
-					<Menu.Item name="activate voice" onClick={this.activateVoice}>
+					<Menu.Item name="activate voice" onClick={this.activateVoice}
+            className={this.state.recording ? 'mic recording' : 'mic'}>
 						<Icon name="unmute" /> Activate Voice
 					</Menu.Item>
 					<Menu.Item name="add medication" path="/add" onClick={this.handleItemClick}>
