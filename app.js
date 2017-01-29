@@ -1,7 +1,8 @@
 const express = require('express');
 const moment = require('moment');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const nohup = require('child_process').exec;
 require('dotenv').config();
 
 const app = express();
@@ -46,6 +47,19 @@ function handleError(res, reason, message, code) {
 	res.status(code || 500).json({ Error: message });
 }
 
+function notify(medicationName) {
+
+	if (medicationName === undefined || medicationName === '') {
+		medicationName = 'Marvelon';
+	}
+	const command = 'osascript -e \'display notification "Yes\t\tSkip\t\tReschedule" with title "Did you take '+ medicationName + '"\'';
+	nohup(command, {silent: true});
+	const say = 'say -v Samantha Please take ' + medicationName;
+	console.log(say);
+	nohup(say, {silent: true});
+
+}
+
 // GET: get hello world response
 app.get('/', (req, res) => {
 	res.send('Hello World!!');
@@ -65,6 +79,17 @@ app.get('/api/medications', (req, res) => {
 	});
 });
 
+// GET: retrieve medications of day and hour now.
+app.get('/api/medications', (req, res) => {
+	Medication.findOne({ weekly.monday: req.body.name }, (err, doc) => {
+		if (err) {
+			handleError(res, err.message, 'Failed to update user');
+		} else {
+			doc.interval.nextintake = moment(doc.interval.nextintake).add(doc.interval.dayinterval, 'days');
+		}
+	});
+});
+
 // PUT: Update nextIntake date
 app.put('/api/medications', (req, res) => {
 
@@ -77,10 +102,23 @@ app.put('/api/medications', (req, res) => {
 	});
 });
 
+// GET voice
+app.get('/record', (req,res) => {
+	const command = 'nohup python nlu.py';
+	nohup(command, {silent: true});
+});
+
+// GET voice
+app.get('/stop', (req,res) => {
+	const command = 'ps -edf | grep "nlu.py" | awk \'{print $2}\' | xargs -I {} kill -9 {}';
+	nohup(command, {silent: true});
+});
+
 // POST: create a new medicine
 app.post('/api/medications', (req, res) => {
 	const newMedication = new Medication();
 	const param = req.body;
+
 	newMedication.name = param.name;
 	newMedication.description = param.description;
 	newMedication.startdate = moment();
@@ -99,7 +137,7 @@ app.post('/api/medications', (req, res) => {
 	newMedication.weekly.sunday = validateBody(param.sunday);
 	if (param.dayinterval === undefined || param.nextintake === undefined) {
 		newMedication.interval.dayinterval = -1;
-		newMedication.interval.nextintake = moment().substract(1, 'years');
+		// newMedication.interval.nextintake = moment().substract(1, 'years');
 	} else {
 		newMedication.interval.dayInterval = param.dayInterval;
 		newMedication.interval.nextintake = param.nextintake;
@@ -129,6 +167,8 @@ app.delete('/api/medications', (req, res) => {
 
 app.listen(app.get('port'), () => {
 	console.log('Node app is running at localhost:' + app.get('port'));
+	setInterval(function(){ notify(); }, 3000);
+	// setInterval(function(){ notify(); }, 3600000);
 });
 
 function validateBody(body) {
