@@ -34,25 +34,25 @@ class App extends React.Component {
               <Table.Row>
                 <Table.Cell>Lyrica</Table.Cell>
                 <Table.Cell>100mg</Table.Cell>
-                <Table.Cell>3:30pm</Table.Cell>
+                <Table.Cell>3:00pm</Table.Cell>
                 <Table.Cell></Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>Lyrica</Table.Cell>
                 <Table.Cell>100mg</Table.Cell>
-                <Table.Cell>3:30pm</Table.Cell>
+                <Table.Cell>6:00pm</Table.Cell>
                 <Table.Cell></Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>Marvelon</Table.Cell>
                 <Table.Cell>0.15mg</Table.Cell>
-                <Table.Cell>12:30pm</Table.Cell>
+                <Table.Cell>8:30pm</Table.Cell>
                 <Table.Cell></Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>Bacopa Monnieri</Table.Cell>
                 <Table.Cell>300mg</Table.Cell>
-                <Table.Cell>5:00pm</Table.Cell>
+                <Table.Cell>12:00pm</Table.Cell>
                 <Table.Cell positive>
                   <Icon name='checkmark' />
                   Taken On Time
@@ -61,7 +61,7 @@ class App extends React.Component {
               <Table.Row>
                 <Table.Cell>Marvelon</Table.Cell>
                 <Table.Cell>0.15mg</Table.Cell>
-                <Table.Cell>12:30pm</Table.Cell>
+                <Table.Cell>11:30am</Table.Cell>
                 <Table.Cell positive>
                   <Icon name='checkmark' />
                   Taken On Time
@@ -70,7 +70,7 @@ class App extends React.Component {
               <Table.Row>
                 <Table.Cell>Lyrica</Table.Cell>
                 <Table.Cell>100mg</Table.Cell>
-                <Table.Cell>3:30pm</Table.Cell>
+                <Table.Cell>10:00am</Table.Cell>
                 <Table.Cell positive>
                   <Icon name='checkmark' />
                   Taken On Time
@@ -79,7 +79,7 @@ class App extends React.Component {
               <Table.Row>
                 <Table.Cell>Lyrica</Table.Cell>
                 <Table.Cell>100mg</Table.Cell>
-                <Table.Cell>3:30pm</Table.Cell>
+                <Table.Cell>9:30am</Table.Cell>
                 <Table.Cell warning>
                   <Icon name='attention' />
                   Taken 2 hours late
@@ -88,7 +88,7 @@ class App extends React.Component {
               <Table.Row>
                 <Table.Cell>Bacopa Monnieri</Table.Cell>
                 <Table.Cell>300mg</Table.Cell>
-                <Table.Cell>5:00pm</Table.Cell>
+                <Table.Cell>7:00am</Table.Cell>
                 <Table.Cell error>
                   <Icon name='close' />
                   Skipped
@@ -108,7 +108,7 @@ class NewData extends React.Component {
         <Table.Row className="new">
           <Table.Cell>Tylenol</Table.Cell>
           <Table.Cell>500mg</Table.Cell>
-          <Table.Cell>1:00pm</Table.Cell>
+          <Table.Cell>2:00pm</Table.Cell>
           <Table.Cell></Table.Cell>
         </Table.Row>
     );
