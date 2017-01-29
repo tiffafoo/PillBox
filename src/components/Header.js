@@ -4,12 +4,16 @@ import logo from "../../public/logo.png"
 import { Menu, Icon } from "semantic-ui-react";
 
 class Header extends React.Component {
-  state = {
-    recording: false
- }
+  constructor(props) {
+    super(props);
+    this.state = { recording: false };
+  }
 
   handleItemClick = (e, { path }) => this.context.router.transitionTo(path);
   activateVoice = () => {
+    if (this.state.recording) {
+      this.props.addData();
+    }
     this.setState({recording: !this.state.recording});
     axios.get('/api/nuance')
       .then(res => console.log(res))

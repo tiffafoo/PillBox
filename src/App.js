@@ -3,10 +3,20 @@ import { Table, Icon } from 'semantic-ui-react';
 import Header from './components/Header';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { added: false };
+    this.addData = this.addData.bind(this);
+  }
+
+  addData() {
+    this.setState({ added: true });
+  }
+
   render() {
     return (
       <div>
-        <Header></Header>
+        <Header addData={ this.addData }></Header>
         <div className="wrapper">
           <h2>My Pillbox</h2>
           <Table celled>
@@ -20,6 +30,7 @@ class App extends React.Component {
             </Table.Header>
 
             <Table.Body>
+              {this.state.added && <NewData/>}
               <Table.Row>
                 <Table.Cell>Lyrica</Table.Cell>
                 <Table.Cell>100mg</Table.Cell>
@@ -87,6 +98,19 @@ class App extends React.Component {
           </Table>
         </div>
       </div>
+    );
+  }
+}
+
+class NewData extends React.Component {
+  render() {
+    return (
+        <Table.Row>
+          <Table.Cell>Tylenol</Table.Cell>
+          <Table.Cell>500mg</Table.Cell>
+          <Table.Cell>1:00pm</Table.Cell>
+          <Table.Cell></Table.Cell>
+        </Table.Row>
     );
   }
 }
