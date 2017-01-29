@@ -105,7 +105,7 @@ class App extends React.Component {
 class NewData extends React.Component {
   render() {
     return (
-        <Table.Row>
+        <Table.Row className="new">
           <Table.Cell>Tylenol</Table.Cell>
           <Table.Cell>500mg</Table.Cell>
           <Table.Cell>1:00pm</Table.Cell>

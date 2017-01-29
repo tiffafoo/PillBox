@@ -197,3 +197,12 @@ td {
 .recording {
   color: #f74433 !important;
 }
+
+.new {
+  animation: new 2s;
+}
+
+@keyframes new {
+  from { background: #c9ddff }
+  to { background: inherit }
+}
