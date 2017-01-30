@@ -1,6 +1,9 @@
 PillBox is a user-friendly medication scheduling app, designed intensive care patients of all tech-levels. With natural, self-learning voice commands,  and a simple but in depth interface, we make it easy for you to remember to take as many complex medications patterns as you need.
 
 We wanted to make it easier for people with many medications to schedule and get notified for them. 
+
+## Important Info & Installation
+This project only works locally for now, and was made for McHacks 2017.
 ## Usage 
 
 Using Nuance, we allow everyone at any tech-level to schedule medications. The voice icon allows you to tell PillBox what you want to add. Here are just a few example of how you can use this feature:    
