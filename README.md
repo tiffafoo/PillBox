@@ -33,9 +33,10 @@ We want to allow more complicated medication patterns. For example, we want to s
 We want to also implement this with RFID tags which will automatically transfer medication intake details to your schedule. 
 
 Implementing Lexalytics with Nuance to ask users how they feel at the end of the day and to log any side effects they had would be a good way to monetize by offering this data to researchers or pharmaceutical companies. It would also help doctors figure out which medications are best for you.
+
 ## Team 
 
-[![Tiffany Le-Nguyen](http://en.gravatar.com/userimage/103321833/15b7599e186f7f0cbec01de0866fb37b.jpg?size=180)](https://github.com/sirMerr) | ![Matan Kushner](https://avatars1.githubusercontent.com/u/4658208?v=3&s=200) | ![Amir El Bawab](https://www.gravatar.com/avatar/3bc3eb6df07010141fb8846546f8e16d?d=https%3A%2F%2Fdevpost-challengepost.netdna-ssl.com%2Fassets%2Fdefaults%2Fno-avatar-180.png&s=180)
+[![Tiffany Le-Nguyen](https://avatars1.githubusercontent.com/u/11183523?s=460&v=4)](https://github.com/sirMerr) | ![Matan Kushner](https://avatars1.githubusercontent.com/u/4658208?v=3&s=200) | ![Amir El Bawab](https://www.gravatar.com/avatar/3bc3eb6df07010141fb8846546f8e16d?d=https%3A%2F%2Fdevpost-challengepost.netdna-ssl.com%2Fassets%2Fdefaults%2Fno-avatar-180.png&s=180)
 ---|---|---
 [Tiffany Le-Nguyen](https://github.com/sirMerr) | [Matan Kushner](https://github.com/matchai) | [Amir El Bawab](amirbawab)
 
